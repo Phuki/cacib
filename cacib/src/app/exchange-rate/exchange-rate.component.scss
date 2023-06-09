@@ -6,9 +6,9 @@
   .reverse-button {
     width: 50px;
     transform: rotate(90deg);
-    position: absolute;
-    right: 300px;
-    top: 320px;
+    display: flex;
+    align-self: center;
+    margin-bottom: 20px;
   }
 
   .card-container {
