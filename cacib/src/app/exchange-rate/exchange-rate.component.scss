@@ -1,4 +1,40 @@
 .container {
   width: 100%;
   height: 100%;
+  color: #76777A;
+
+  .reverse-button {
+    width: 50px;
+    transform: rotate(90deg);
+    position: absolute;
+    right: 300px;
+    top: 320px;
+  }
+
+  .card-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+
+    .currency-form, .rate-form {
+      margin: 20px 0;
+      padding: 20px 0;
+
+      mat-form-field {
+        color: #76777A;
+        width: 300px;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      input {
+        color: #76777A;
+      }
+    }
+  }
 }
