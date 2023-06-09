@@ -39,37 +39,46 @@ export class ExchangeRateComponent implements OnInit {
     basedRate: new FormControl(null),
     actualRate: new FormControl(null)
   });
+  isEuro = true;
 
   ngOnInit() {
     setInterval(() => {
       this.rate.set(Number(((Math.random() * (0.05 - -0.05) + 0.05) + this.dollarBaseRate).toFixed(2)));
+      this.isEuro ? this.currencyForm.get('actualRate')?.setValue(this.euroToDollarRate(this.currencyForm.value.initialValue!!))
+      : this.currencyForm.get('actualRate')?.setValue(this.dollarToEuroRate(this.currencyForm.value.initialValue!!));
     }, 3000);
 
     this.currencyForm.get('initialValue')?.valueChanges.subscribe(value => {
       if (value) {
-        this.currencyForm.get('basedRate')?.setValue(this.euroToDollarBase(value));
-        this.currencyForm.get('actualRate')?.setValue(this.euroToDollarRate(value));
+        if (this.isEuro) {
+          this.currencyForm.get('basedRate')?.setValue(this.euroToDollarBase(value));
+          this.currencyForm.get('actualRate')?.setValue(this.euroToDollarRate(value));
+        } else {
+          this.currencyForm.get('basedRate')?.setValue(this.dollarToEuroBase(value));
+          this.currencyForm.get('actualRate')?.setValue(this.dollarToEuroRate(value));
+        }
       }
     })
   }
 
   euroToDollarBase(euroValue: number) {
-    return euroValue * this.dollarBaseRate;
+    return Number((euroValue * this.dollarBaseRate).toFixed(2));
   }
 
   euroToDollarRate(euroValue: number) {
-    return euroValue * this.rate();
+    return Number((euroValue * this.rate()).toFixed(2));
   }
 
   dollarToEuroBase(dollarValue: number) {
-    return dollarValue / this.dollarBaseRate;
+    return Number((dollarValue / this.dollarBaseRate).toFixed(2));
   }
 
   dollarToEuroRate(dollarValue: number) {
-    return dollarValue / this.rate();
+    return Number((dollarValue / this.rate()).toFixed(2));
   }
 
   changeCurrency() {
-    console.log('change currency');
+    this.isEuro = !this.isEuro;
+    this.currencyForm.get('initialValue')?.setValue(this.currencyForm.value.basedRate!!);
   }
 }
