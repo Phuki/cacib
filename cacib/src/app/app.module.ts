@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import {NavbarComponent} from "./core/navbar/navbar.component";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {ExchangeRateComponent} from "./exchange-rate/exchange-rate.component";
 
 @NgModule({
   declarations: [
@@ -10,7 +12,9 @@ import {NavbarComponent} from "./core/navbar/navbar.component";
   ],
   imports: [
     BrowserModule,
-    NavbarComponent
+    NavbarComponent,
+    BrowserAnimationsModule,
+    ExchangeRateComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

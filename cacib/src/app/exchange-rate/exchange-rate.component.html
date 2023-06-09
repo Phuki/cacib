@@ -1,0 +1,40 @@
+<div class="container">
+  <div>
+    <mat-card>
+      <h3>1 Euro égal</h3>
+      <h2>{{rate()}} Dollar américain</h2>
+
+      <div class="currency-form">
+        <form [formGroup]="currencyForm">
+          <mat-form-field appearance="outline">
+            <mat-label>Euro</mat-label>
+            <input matInput placeholder="euro" formControlName="initialValue">
+            <mat-icon matSuffix>euro_symbol</mat-icon>
+          </mat-form-field>
+
+          <div class="reverse-button">
+            <button mat-icon-button (click)="changeCurrency()">
+              Inverse currency
+            </button>
+          </div>
+
+          <p>Avec le taux de base</p>
+          <mat-form-field appearance="outline">
+            <mat-label>Dollar</mat-label>
+            <input matInput placeholder="euro" formControlName="basedRate" >
+            <mat-icon matSuffix>attach_money</mat-icon>
+          </mat-form-field>
+
+          <p>Avec le taux réel</p>
+          <mat-form-field appearance="outline">
+            <mat-label>Dollar</mat-label>
+            <input matInput placeholder="Dollar" formControlName="actualRate">
+            <mat-icon matSuffix>attach_money</mat-icon>
+          </mat-form-field>
+        </form>
+      </div>
+
+    </mat-card>
+  </div>
+
+</div>
