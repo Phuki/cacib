@@ -7,33 +7,43 @@
       <div class="currency-form">
         <form [formGroup]="currencyForm">
           <mat-form-field appearance="outline">
-            <mat-label>Euro</mat-label>
-            <input matInput placeholder="euro" formControlName="initialValue">
-            <mat-icon matSuffix>euro_symbol</mat-icon>
+            <mat-label>{{isEuro ? 'Euro' : 'Dollar'}}</mat-label>
+            <input matInput placeholder="{{isEuro ? 'Euro' : 'Dollar'}}" formControlName="initialValue">
+            <mat-icon matSuffix>{{isEuro ? 'euro_symbol' : 'attach_money'}}</mat-icon>
           </mat-form-field>
 
           <div class="reverse-button">
             <button mat-icon-button (click)="changeCurrency()">
-              Inverse currency
+              <mat-icon>compare_arrows</mat-icon>
             </button>
           </div>
 
           <p>Avec le taux de base</p>
           <mat-form-field appearance="outline">
-            <mat-label>Dollar</mat-label>
-            <input matInput placeholder="euro" formControlName="basedRate" >
-            <mat-icon matSuffix>attach_money</mat-icon>
+            <mat-label>{{isEuro ? 'Dollar' : 'Euro'}}</mat-label>
+            <input matInput placeholder="{{isEuro ? 'Euro' : 'Dollar'}}" formControlName="basedRate" >
+            <mat-icon matSuffix>{{isEuro ? 'attach_money' : 'euro_symbol'}}</mat-icon>
           </mat-form-field>
 
           <p>Avec le taux réel</p>
           <mat-form-field appearance="outline">
-            <mat-label>Dollar</mat-label>
-            <input matInput placeholder="Dollar" formControlName="actualRate">
-            <mat-icon matSuffix>attach_money</mat-icon>
+            <mat-label>{{isEuro ? 'Dollar' : 'Euro'}}</mat-label>
+            <input matInput placeholder="{{isEuro ? 'Euro' : 'Dollar'}}" formControlName="actualRate">
+            <mat-icon matSuffix>{{isEuro ? 'attach_money' : 'euro_symbol'}}</mat-icon>
           </mat-form-field>
         </form>
       </div>
-      
+
+      <div class="rate-form">
+        <h2>Tester un taux de change</h2>
+        <form [formGroup]="rateForm">
+          <mat-form-field appearance="outline">
+            <mat-label>Rate</mat-label>
+            <input matInput formControlName="rate">
+          </mat-form-field>
+        </form>
+      </div>
+
     </mat-card>
   </div>
 

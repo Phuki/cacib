@@ -39,7 +39,13 @@ export class ExchangeRateComponent implements OnInit {
     basedRate: new FormControl(null),
     actualRate: new FormControl(null)
   });
+  rateForm = new FormGroup<{
+    rate: FormControl<number | null>
+  }>({
+    rate: new FormControl(null)
+  })
   isEuro = true;
+  isNewRate = false;
 
   ngOnInit() {
     setInterval(() => {
@@ -59,6 +65,16 @@ export class ExchangeRateComponent implements OnInit {
         }
       }
     })
+
+    this.rateForm.get('rate')?.valueChanges.subscribe(rate => {
+      if (rate) {
+        if (rate > (this.rate() + this.rate() * 0.02) || rate < (this.rate() - this.rate() * 0.02)) {
+          this.isNewRate = false;
+        } else {
+          this.isNewRate = true;
+        }
+      }
+    });
   }
 
   euroToDollarBase(euroValue: number) {
