@@ -1,0 +1,10 @@
+Afin d'effectuer l'exercice voici les raccourcis que je me suis permis :
+- Angular material pour le design
+- Tout coder dans le fichier exchange-rate.ts
+- Les calculs comme la valeur aléatoire entre +/- 0.05 via chatgpt
+
+Améliorations possible :
+- Diviser le code et mettre la partie logique dans un service
+- Egalement mettre les type/interface dans un fichier ts à part
+- Bien renommer le nom des colonnes et pas avec leur key et appliquer un formatage limité à 4 décimales
+- Accessibilité
