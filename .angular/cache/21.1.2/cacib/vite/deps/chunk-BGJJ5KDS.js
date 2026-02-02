@@ -1,12 +1,17 @@
 import {
+  coerceArray
+} from "./chunk-46DKN5DF.js";
+import {
   DomSanitizer
 } from "./chunk-IJE2HEYN.js";
 import {
+  _CdkPrivateStyleLoader
+} from "./chunk-E76PIZRO.js";
+import {
   Platform,
-  _CdkPrivateStyleLoader,
   coerceElement,
   coerceNumberProperty
-} from "./chunk-RXLFAL33.js";
+} from "./chunk-PKM42OKG.js";
 import {
   ANIMATION_MODULE_TYPE,
   APP_ID,
@@ -839,11 +844,6 @@ function hasModifierKey(event, ...modifiers) {
     return modifiers.some((modifier) => event[modifier]);
   }
   return event.altKey || event.shiftKey || event.ctrlKey || event.metaKey;
-}
-
-// node_modules/@angular/cdk/fesm2022/_array-chunk.mjs
-function coerceArray(value) {
-  return Array.isArray(value) ? value : [value];
 }
 
 // node_modules/@angular/cdk/fesm2022/_breakpoints-observer-chunk.mjs
@@ -2367,14 +2367,6 @@ var ConfigurableFocusTrapFactory = class _ConfigurableFocusTrapFactory {
   }], () => [], null);
 })();
 
-// node_modules/@angular/cdk/fesm2022/_scrolling-chunk.mjs
-var RtlScrollAxisType;
-(function(RtlScrollAxisType2) {
-  RtlScrollAxisType2[RtlScrollAxisType2["NORMAL"] = 0] = "NORMAL";
-  RtlScrollAxisType2[RtlScrollAxisType2["NEGATED"] = 1] = "NEGATED";
-  RtlScrollAxisType2[RtlScrollAxisType2["INVERTED"] = 2] = "INVERTED";
-})(RtlScrollAxisType || (RtlScrollAxisType = {}));
-
 // node_modules/@angular/cdk/fesm2022/platform.mjs
 var PlatformModule = class _PlatformModule {
   static ɵfac = function PlatformModule_Factory(__ngFactoryType__) {
@@ -2407,11 +2399,6 @@ function getSupportedInputTypes() {
     return featureTestInput.type === value;
   }));
   return supportedInputTypes;
-}
-
-// node_modules/@angular/cdk/fesm2022/coercion.mjs
-function coerceBooleanProperty(value) {
-  return value != null && `${value}` !== "false";
 }
 
 // node_modules/@angular/cdk/fesm2022/layout.mjs
@@ -2465,7 +2452,6 @@ export {
   _IdGenerator,
   hasModifierKey,
   getSupportedInputTypes,
-  coerceBooleanProperty,
   _animationsDisabled
 };
-//# sourceMappingURL=chunk-MMBVZMB4.js.map
+//# sourceMappingURL=chunk-BGJJ5KDS.js.map

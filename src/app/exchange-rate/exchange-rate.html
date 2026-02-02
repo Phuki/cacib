@@ -20,3 +20,15 @@
     <mat-label>Taux forcé</mat-label>
     <input matInput type="number" [formControl]="forcedRateForm">
 </mat-form-field>
+
+<table mat-table [dataSource]="history()">
+    @for (column of displayedColumns; track column) {
+    <ng-container [matColumnDef]="column">
+        <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+        <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+    </ng-container>
+    }
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

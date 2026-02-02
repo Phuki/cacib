@@ -1,17 +1,27 @@
 import { DecimalPipe } from '@angular/common';
-import { Component, computed, DestroyRef, inject, signal } from '@angular/core';
+import { Component, computed, DestroyRef, effect, inject, signal } from '@angular/core';
 import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatTableModule } from '@angular/material/table';
 import { interval, startWith } from 'rxjs';
 
 type Currency = 'EUR' | 'USD';
 
+interface ExchangeHistory {
+  realRate: number;
+  forcedRate: number;
+  amount: number;
+  inputCurrency: Currency;
+  outputCurrency: Currency;
+  convertedAmount: number;
+}
+
 @Component({
   selector: 'app-exchange-rate',
-  imports: [DecimalPipe, MatFormFieldModule, MatInputModule, ReactiveFormsModule, MatButtonToggleModule],
+  imports: [DecimalPipe, MatFormFieldModule, MatInputModule, ReactiveFormsModule, MatButtonToggleModule, MatTableModule],
   templateUrl: './exchange-rate.html',
   styleUrl: './exchange-rate.scss',
 })
@@ -47,6 +57,31 @@ export class ExchangeRate {
     ),
     { initialValue: this.forcedRateForm.value }
   )
+
+  history = signal<ExchangeHistory[]>([]);
+  displayedColumns: string[] = [
+    'realRate',
+    'forcedRate',
+    'amount',
+    'inputCurrency',
+    'convertedAmount',
+    'outputCurrency'];
+
+
+  constructor() {
+    effect(() => {
+      const row: ExchangeHistory = {
+        realRate: this.realRate(),
+        forcedRate: this.forcedRateForm.value,
+        amount: this.amount(),
+        inputCurrency: this.inputCurrency(),
+        outputCurrency: this.outputCurrency(),
+        convertedAmount: this.convertedAmount()
+      };
+
+      this.history.update(prev => [row, ...prev].slice(0, 5));
+    });
+  }
 
   ngOnInit() {
     interval(3000)
