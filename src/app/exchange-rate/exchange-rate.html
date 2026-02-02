@@ -1,1 +1,9 @@
-<p>{{realRate() | number:'1.4-4'}}</p>
+<p>Taux réel : {{realRate() | number:'1.4-4'}}</p>
+
+<mat-form-field>
+    <mat-label>Montant en euros</mat-label>
+    <input matInput type="number" [formControl]="amountForm">
+</mat-form-field>
+
+<div>Resultat en dollars</div>
+<div>{{convertedAmount() | number: '1.4-4'}}</div>
