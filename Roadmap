@@ -1,0 +1,6 @@
+- Gestion de plusieurs devises via un dropdown et conversion multi-devises
+- Récupérer les taux via une API
+- Historique paginé avec des filtres
+- Un meilleur design et reponsive
+- Accesssibilité
+- Tests
