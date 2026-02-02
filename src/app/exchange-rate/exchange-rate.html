@@ -1,9 +1,17 @@
 <p>Taux réel : {{realRate() | number:'1.4-4'}}</p>
 
 <mat-form-field>
-    <mat-label>Montant en euros</mat-label>
+    <mat-label>Montant en {{inputCurrency()}}</mat-label>
     <input matInput type="number" [formControl]="amountForm">
 </mat-form-field>
 
-<div>Resultat en dollars</div>
+<section>
+    <h3>Devise d'entrée</h3>
+    <mat-button-toggle-group [value]="inputCurrency()" (valueChange)="onCurrencyChange($event)">
+        <mat-button-toggle value="EUR">EUR</mat-button-toggle>
+        <mat-button-toggle value="USD">USD</mat-button-toggle>
+    </mat-button-toggle-group>
+</section>
+
+<div>Resultat en {{outputCurrency()}}</div>
 <div>{{convertedAmount() | number: '1.4-4'}}</div>
