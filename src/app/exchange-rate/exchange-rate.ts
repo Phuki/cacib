@@ -33,8 +33,20 @@ export class ExchangeRate {
     { initialValue: this.amountForm.value });
 
   convertedAmount = computed(() => {
-    return this.inputCurrency() === 'EUR' ? this.realRate() * this.amount() : this.amount() / this.realRate();
+    let usedRate = this.realRate();
+    if (this.forcedRate() && this.forcedRate() < this.realRate() * 1.02) {
+      usedRate = this.forcedRate();
+    }
+    return this.inputCurrency() === 'EUR' ? usedRate * this.amount() : this.amount() / usedRate;
   });
+
+  forcedRateForm = new FormControl<number>(1, { nonNullable: true });
+  forcedRate = toSignal(
+    this.forcedRateForm.valueChanges.pipe(
+      startWith(this.forcedRateForm.value)
+    ),
+    { initialValue: this.forcedRateForm.value }
+  )
 
   ngOnInit() {
     interval(3000)
