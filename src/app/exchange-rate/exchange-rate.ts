@@ -46,7 +46,8 @@ export class ExchangeRate {
 
   convertedAmount = computed(() => {
     let usedRate = this.realRate();
-    if (this.forcedRate() && this.forcedRate() < this.realRate() * 1.02) {
+    const diffPercentage = Math.abs(this.forcedRate() - this.realRate()) / this.realRate();
+    if (this.forcedRate() && diffPercentage <= 0.02) {
       usedRate = this.forcedRate();
     }
     return this.inputCurrency() === 'EUR' ? usedRate * this.amount() : this.amount() / usedRate;
