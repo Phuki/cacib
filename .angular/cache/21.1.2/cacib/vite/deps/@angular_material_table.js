@@ -10,18 +10,21 @@ import {
   RtlScrollAxisType,
   getRtlScrollAxisType,
   supportsScrollBehavior
-} from "./chunk-46DKN5DF.js";
+} from "./chunk-GUGIMSVJ.js";
+import {
+  Platform
+} from "./chunk-DZEGOZUE.js";
+import "./chunk-ONF4LMPL.js";
+import {
+  _isNumberValue,
+  coerceElement,
+  coerceNumberProperty
+} from "./chunk-NESGS3OX.js";
+import "./chunk-PJSCU4TI.js";
 import {
   BidiModule,
   Directionality
 } from "./chunk-Y6JBZVTB.js";
-import {
-  Platform,
-  _isNumberValue,
-  coerceElement,
-  coerceNumberProperty
-} from "./chunk-PKM42OKG.js";
-import "./chunk-PJSCU4TI.js";
 import {
   ApplicationRef,
   ChangeDetectionStrategy,

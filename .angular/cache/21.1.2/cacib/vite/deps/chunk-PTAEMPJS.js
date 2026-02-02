@@ -1,17 +1,19 @@
 import {
-  coerceArray
-} from "./chunk-46DKN5DF.js";
-import {
-  DomSanitizer
-} from "./chunk-IJE2HEYN.js";
-import {
   _CdkPrivateStyleLoader
 } from "./chunk-E76PIZRO.js";
 import {
-  Platform,
+  Platform
+} from "./chunk-DZEGOZUE.js";
+import {
+  coerceArray
+} from "./chunk-ONF4LMPL.js";
+import {
   coerceElement,
   coerceNumberProperty
-} from "./chunk-PKM42OKG.js";
+} from "./chunk-NESGS3OX.js";
+import {
+  DomSanitizer
+} from "./chunk-IJE2HEYN.js";
 import {
   ANIMATION_MODULE_TYPE,
   APP_ID,
@@ -2454,4 +2456,4 @@ export {
   getSupportedInputTypes,
   _animationsDisabled
 };
-//# sourceMappingURL=chunk-BGJJ5KDS.js.map
+//# sourceMappingURL=chunk-PTAEMPJS.js.map

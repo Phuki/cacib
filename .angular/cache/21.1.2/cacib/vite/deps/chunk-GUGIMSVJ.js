@@ -1,13 +1,3 @@
-// node_modules/@angular/cdk/fesm2022/_array-chunk.mjs
-function coerceArray(value) {
-  return Array.isArray(value) ? value : [value];
-}
-
-// node_modules/@angular/cdk/fesm2022/coercion.mjs
-function coerceBooleanProperty(value) {
-  return value != null && `${value}` !== "false";
-}
-
 // node_modules/@angular/cdk/fesm2022/_scrolling-chunk.mjs
 var RtlScrollAxisType;
 (function(RtlScrollAxisType2) {
@@ -68,8 +58,6 @@ function getRtlScrollAxisType() {
 export {
   RtlScrollAxisType,
   supportsScrollBehavior,
-  getRtlScrollAxisType,
-  coerceArray,
-  coerceBooleanProperty
+  getRtlScrollAxisType
 };
-//# sourceMappingURL=chunk-46DKN5DF.js.map
+//# sourceMappingURL=chunk-GUGIMSVJ.js.map

@@ -3,6 +3,8 @@ import { Component, computed, DestroyRef, effect, inject, signal } from '@angula
 import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
@@ -21,7 +23,7 @@ interface ExchangeHistory {
 
 @Component({
   selector: 'app-exchange-rate',
-  imports: [DecimalPipe, MatFormFieldModule, MatInputModule, ReactiveFormsModule, MatButtonToggleModule, MatTableModule],
+  imports: [DecimalPipe, MatFormFieldModule, MatInputModule, ReactiveFormsModule, MatButtonToggleModule, MatTableModule, MatCardModule, MatDividerModule],
   templateUrl: './exchange-rate.html',
   styleUrl: './exchange-rate.scss',
 })
@@ -66,7 +68,6 @@ export class ExchangeRate {
     'inputCurrency',
     'convertedAmount',
     'outputCurrency'];
-
 
   constructor() {
     effect(() => {
